@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6210/6210176.png">
+</head>
+<body>
+  <h2>Remove Background</h2>
+  <form id="signUpForm">
+    <h1>Sign Up</h1>
+    <input type="email" id="email" placeholder="Enter Email" required>
+    <input type="password" id="password" placeholder="Enter Password" required>
+    <button type="submit">Sign Up</button>
+    <p class="error" id="error"></p>
+    <p>Already have an account? <a href="signin.html">Sign In</a></p>
+  </form>
+
+  <div id="successMessage" class="success-message" style="display: none;">
+    Account created successfully! Redirecting to Login...
+  </div>
+
+  <script>
+    // Example script for sign-up functionality (adjust based on your needs)
+    document.getElementById('signUpForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        // Validation
+        if (!email || !password) {
+            document.getElementById('error').innerText = "Please fill in both fields.";
+            return;
+        }
+
+        // Simulate account creation (replace with Firebase or backend integration)
+        localStorage.setItem("isSignedUp", true); // Set the sign-up status
+        localStorage.setItem("userEmail", email); // Save the email
+
+        document.getElementById('successMessage').style.display = 'block';
+        setTimeout(function() {
+            window.location.href = "signin.html"; // Redirect to sign-in page after account creation
+        }, 2000); // Redirect after 2 seconds
+    });
+  </script>
+</body>
+</html>

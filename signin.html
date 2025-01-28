@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4405581336011742"
+     crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6210/6210176.png">
+</head>
+<body>
+  <h2>Remove Background</h2>
+  <form id="signInForm">
+    <h1>Sign In</h1>
+    <input type="email" id="signInEmail" placeholder="Enter Email" required>
+    <input type="password" id="signInPassword" placeholder="Enter Password" required>
+    <button type="submit" id="loginButton">Sign In</button>
+
+    <p class="error" id="error"></p>
+    <button type="button" id="googleSignInBtn">Sign in with Google</button>
+    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+  </form>
+
+  <!-- Success Message -->
+  <div id="successMessage" class="success-message" style="display: none;">
+    Login successful! Redirecting to Index...
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDKRADtZ9fa2pyvXIw5oXFf7ttNFje80A8",
+      authDomain: "ahmed-99129.firebaseapp.com",
+      projectId: "ahmed-99129",
+      storageBucket: "ahmed-99129.appspot.com",
+      messagingSenderId: "113829270298",
+      appId: "1:113829270298:web:0dc3b3a84d94566e8792a3",
+      measurementId: "G-YGW2QVQ32C"
+    };
+
+    // Initialize Firebase
+    const firebaseApp = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth(); // Firebase Auth
+
+    // Sign-In functionality
+    document.getElementById("signInForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("signInEmail").value;
+      const password = document.getElementById("signInPassword").value;
+
+      // Check if the user is signed up first
+      if (!localStorage.getItem("isSignedUp")) {
+        alert("You need to sign up first.");
+        window.location.href = "signup.html";
+        return;
+      }
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          // Display success message
+          const successMessage = document.getElementById("successMessage");
+          successMessage.style.display = "block"; // Show the success message
+          setTimeout(() => {
+            window.location.href = "index.html"; // Navigate to index page
+          }, 2000); // Wait for 2 seconds before redirecting
+        })
+        .catch((error) => {
+          document.getElementById("error").textContent = error.message;
+        });
+    });
+
+    // Google Sign-In functionality
+    document.getElementById("googleSignInBtn").addEventListener("click", () => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+
+      auth.signInWithPopup(provider)
+        .then(() => {
+          // Display success message
+          const successMessage = document.getElementById("successMessage");
+          successMessage.style.display = "block"; // Show the success message
+          setTimeout(() => {
+            window.location.href = "index.html"; // Navigate to index page
+          }, 2000); // Wait for 2 seconds before redirecting
+        })
+        .catch((error) => {
+          document.getElementById("error").textContent = error.message;
+        });
+    });
+    localStorage.setItem("isLoggedIn", true); // لتخزين حالة تسجيل الدخول
+window.location.href = "index.html"; // لإعادة التوجيه للصفحة الرئيسية
+
+  </script>
+</body>
+</html>

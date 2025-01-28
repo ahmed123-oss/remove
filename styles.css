@@ -1,0 +1,294 @@
+
+.image-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* Smaller gap between images */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+}
+
+/* Image Box */
+.image-box {
+    width: 23%; /* Adjust width to fit four images in a row */
+    height: 200px; /* Fixed height for square shape */
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px; /* Space between images in case of wrapping */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure images don't overflow the box */
+    position: relative; /* Allows positioning of the label above the image */
+}
+
+/* Hover Effect */
+.image-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Styling */
+.image-box img {
+    width: 100%; /* Make the image take up 100% of the box's width */
+    height: 100%; /* Make the image fill the box's height */
+    object-fit: cover; /* Ensure the image fills the box without distortion */
+    border-radius: 8px; /* Rounded corners for the image */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow to the image */
+}
+
+/* Label for Before/After */
+.label {
+    position: absolute;
+    top: 10px; /* Distance from the top of the box */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.content {
+    max-width: 600px;
+}
+
+.content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.upload {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.upload-btn {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+    background-color: #0056b3;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.download-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.download-btn:hover {
+    background-color: #45a049;
+}
+
+.close-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.close-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #007bff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #007bff;
+    border-radius: 25px;
+    background: none;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn.primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background-color: #0056b3;
+}
+
+
+h1{
+    text-align: center;
+}
+/* Download Section */
+.download-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Container for the download image and button */
+.download-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between the image and the button */
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+}
+
+/* Image Container */
+.download-image img {
+    width: 200px; /* Set the width of the app image */
+    height: 350px; /* Set the height of the app image */
+    object-fit: cover; /* Ensure the image maintains its aspect ratio */
+    border-radius: 15px; /* Rounded corners for the image */
+}
+
+/* Information Section */
+.download-info {
+    max-width: 300px; /* Limit the width of the text section */
+    text-align: left;
+}
+
+.download-info p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.download-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #45a049;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .image-box {
+        width: 48%;
+        height: 150px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .image-box {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
